@@ -6,7 +6,7 @@ import Contact from "./_components/Contact";
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <Hero />
       <WhatWeDo />
       <Goal />
