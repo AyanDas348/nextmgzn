@@ -30,7 +30,7 @@ const Contact = () => {
                     </div>
                 </div>
 
-                <div className="lg:w-2/3 w-full flex flex-col lg:m-20 mx-2 my-6 text-black gap-y-20">
+                <div className="lg:w-2/3 w-full flex flex-col lg:m-20 mx-2 my-6 text-black gap-y-20" id="contact-form">
                     <div className="flex lg:w-full justify-start gap-x-40 lg:flex-row flex-col gap-y-12 w-2/3">
                         <div className="flex flex-col">
                             <label>First Name</label>
@@ -41,7 +41,7 @@ const Contact = () => {
                             <input className="border-b border-black" />
                         </div>
                     </div>
-                    <div className="flex w-full justify-start gap-x-40 gap-y-12">
+                    <div className="flex lg:w-full justify-start gap-x-40 lg:flex-row flex-col gap-y-12 w-2/3">
                         <div className="flex flex-col">
                             <label>Email</label>
                             <input className="border-b border-black" />

@@ -1,7 +1,12 @@
 import Image from "next/image";
 import image from '@/public/hero.png'
+import Link from "next/link";
 
-const Hero = () => {
+interface HeroProps {
+    handleScroll: () => void;
+}
+
+const Hero = ({ handleScroll }: HeroProps) => {
     return (
         <div className="w-full flex bg-[#4f4138] h-screen flex-col">
             <div className="absolute left-10 top-10">
@@ -17,7 +22,7 @@ const Hero = () => {
                         <p className="text-white lg:text-6xl lg:w-4/5 xl:w-3/5 font-extrabold text-2xl">
                             Data Driven Strategies
                         </p>
-                        <button className="text-white flex justify-start lg:mt-10 mt-6">
+                        <button className="text-white flex justify-start lg:mt-10 mt-6" onClick={handleScroll}>
                             <p className="lg:w-fit w-full px-6 py-2 bg-[#DD6545] rounded-[14px]">
                                 Contact
                             </p>
