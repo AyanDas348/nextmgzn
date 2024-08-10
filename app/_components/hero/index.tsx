@@ -1,6 +1,5 @@
 import Image from "next/image";
-import image from '@/public/hero.png'
-import Link from "next/link";
+import image from '@/public/hero.png';
 
 interface HeroProps {
     handleScroll: () => void;
@@ -9,7 +8,7 @@ interface HeroProps {
 const Hero = ({ handleScroll }: HeroProps) => {
     return (
         <div className="w-full flex bg-[#4f4138] h-screen flex-col">
-            <div className="absolute left-10 top-10">
+            <div className="absolute left-10 top-10 z-20">
                 <p className="font-extrabold text-white">NeXTMGZN</p>
             </div>
             <div className="w-full lg:flex h-screen flex flex-col-reverse lg:flex-row">
@@ -29,8 +28,9 @@ const Hero = ({ handleScroll }: HeroProps) => {
                         </button>
                     </div>
                 </div>
-                <div className="flex-1 lg:h-full h-1/2">
+                <div className="relative flex-1 lg:h-full h-1/2">
                     <Image src={image} alt="hero" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
                 </div>
             </div>
         </div>

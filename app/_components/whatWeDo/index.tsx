@@ -1,9 +1,9 @@
 const WhatWeDo = () => {
     return (
         <div className="h-full w-full flex flex-col">
-            <h1 className="w-full my-20 text-center text-4xl font-bold">What We Do</h1>
+            <h1 className="w-full my-20 lg:text-center text-start px-6 lg:px-0 text-4xl font-bold">What We Do</h1>
             <div className="lg:mx-20 mx-6">
-                <div className="lg:grid lg:grid-cols-4 gap-x-5 lg:gap-y-20 flex flex-col gap-y-12">
+                <div className="lg:grid lg:grid-cols-4 gap-x-5 lg:gap-y-20 grid grid-cols-2 gap-y-12">
                     {Array.from({ length: 8 }).map((item, index) => {
                         return (
                             <div key={index}>
