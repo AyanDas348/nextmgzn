@@ -1,6 +1,73 @@
 import { Facebook, Instagram, Mail, MapPin, Phone, Twitter } from "lucide-react";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 const Contact = () => {
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
+        message: "",
+    });
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const validateEmail = (email: string) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
+    };
+
+    const validateForm = () => {
+        const { firstName, lastName, email, phoneNumber, message } = formData;
+        if (!firstName || !lastName || !email || !phoneNumber || !message) {
+            toast.warning('Please fill in all fields.', { position: 'top-center' });
+            return false;
+        }
+        if (!validateEmail(email)) {
+            toast.warning('Please enter a valid email address.', { position: 'top-center' });
+            return false;
+        }
+        return true;
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if (!validateForm()) {
+            return;
+        }
+
+        try {
+            const res = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (res.ok) {
+                toast.success('Email sent successfully!', { position: 'top-center' });
+                setFormData({
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    phoneNumber: "",
+                    message: "",
+                });
+            } else {
+                toast.error('Failed to send email.', { position: 'top-center' });
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            toast.error('Failed to send email.', { position: 'top-center' });
+        }
+    };
+
     return (
         <div className="h-full w-full flex flex-col mb-20 bg-[#f9f9f9]">
             <h1 className="w-full mt-20 text-center text-4xl font-bold text-[#4f4138]">Contact Us</h1>
@@ -10,70 +77,100 @@ const Contact = () => {
                     <p className="text-4xl font-bold">Contact Information</p>
                     <p className="text-xl mt-10">Let&apos;s Grow your business together</p>
                     <div className="flex flex-col w-full h-full gap-y-12 mt-12">
-                        <p className="flex gap-x-5 justify-start lg:flex-row flex-col w-full lg:text-start text-center">
-                            <div className="flex lg:w-fit w-full justify-center lg:justify-start">
-                                <Phone fill="white" color="black" className="h-6 w-6 lg:w-8 lg:h-8" />
-                            </div>
-                            +91 80186 95050
-                        </p>
-                        <p className="flex gap-x-5 break-all justify-start lg:flex-row flex-col w-full lg:text-start text-center">
-                            <div className="flex lg:w-fit w-full justify-center lg:justify-start">
-                                <Mail fill="white" color="black" className="h-10 w-10 lg:w-8 lg:h-8" />
-                            </div>
-                            contact@themagazinestudios.com
-                        </p>
-                        <p className="flex gap-x-5 justify-start lg:flex-row flex-col w-full lg:text-start text-center">
-                            <div className="flex lg:w-fit w-full justify-center lg:justify-start">
-                                <MapPin fill="white" color="black" className="h-12 w-10 lg:w-10 lg:h-10" />
-                            </div>
-                            M84, M block market, Greater Kailash 2, New Delhi
-                        </p>
+                        <div className="flex gap-x-5 items-center">
+                            <Phone className="h-6 w-6 lg:w-8 lg:h-8" />
+                            <p>+91 80186 95050</p>
+                        </div>
+                        <div className="flex gap-x-5 items-center break-all">
+                            <Mail className="h-10 w-10 lg:w-8 lg:h-8" />
+                            <p>contact@themagazinestudios.com</p>
+                        </div>
+                        <div className="flex gap-x-5 items-center">
+                            <MapPin className="h-12 w-10 lg:w-10 lg:h-10" />
+                            <p>M84, M block market, Greater Kailash 2, New Delhi</p>
+                        </div>
                     </div>
-                    <div className="flex w-full gap-x-8 lg:mt-40 mt-24 cursor-pointer justify-center lg:justify-start">
+                    <div className="flex gap-x-8 lg:mt-40 mt-24 justify-center lg:justify-start cursor-pointer">
                         <Twitter />
                         <Instagram />
                         <Facebook />
                     </div>
                 </div>
 
-                <div className="lg:w-2/3 w-full flex flex-col lg:m-20 mx-2 my-6 text-black lg:gap-y-20 gap-y-12" id="contact-form">
-                    <div className="flex lg:w-full justify-start gap-x-40 lg:flex-row flex-col gap-y-12 w-2/3">
-                        <div className="flex flex-col gap-y-2">
-                            <label>First Name</label>
-                            <input className="border-b border-black focus:border-transparent focus:outline-none focus:!border-b-black" />
+                <div className="lg:w-2/3 w-full flex flex-col lg:m-20 mx-2 my-6 text-black gap-y-12" id="contact-form">
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-y-8">
+                        <div className="flex flex-col lg:flex-row gap-y-12 lg:gap-x-40 w-full">
+                            <div className="flex flex-col w-full gap-y-2">
+                                <label htmlFor="firstName">First Name</label>
+                                <input
+                                    id="firstName"
+                                    name="firstName"
+                                    className="border-b border-black focus:border-transparent focus:outline-none focus:border-b-black"
+                                    value={formData.firstName}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                            </div>
+                            <div className="flex flex-col w-full gap-y-2">
+                                <label htmlFor="lastName">Last Name</label>
+                                <input
+                                    id="lastName"
+                                    name="lastName"
+                                    className="border-b border-black focus:border-transparent focus:outline-none focus:border-b-black"
+                                    value={formData.lastName}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                            </div>
                         </div>
-                        <div className="flex flex-col gap-y-2">
-                            <label>Last Name</label>
-                            <input className="border-b border-black focus:border-transparent focus:outline-none focus:!border-b-black" />
+                        <div className="flex flex-col lg:flex-row gap-y-12 lg:gap-x-40 w-full">
+                            <div className="flex flex-col w-full gap-y-2">
+                                <label htmlFor="email">Email</label>
+                                <input
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    className="border-b border-black focus:border-transparent focus:outline-none focus:border-b-black"
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                            </div>
+                            <div className="flex flex-col w-full gap-y-2">
+                                <label htmlFor="phoneNumber">Phone Number</label>
+                                <input
+                                    id="phoneNumber"
+                                    name="phoneNumber"
+                                    type="tel"
+                                    className="border-b border-black focus:border-transparent focus:outline-none focus:border-b-black"
+                                    value={formData.phoneNumber}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div className="flex lg:w-full justify-start gap-x-40 lg:flex-row flex-col gap-y-12 w-2/3">
-                        <div className="flex flex-col gap-y-2">
-                            <label>Email</label>
-                            <input className="border-b border-black focus:border-transparent focus:outline-none focus:!border-b-black" />
+                        <div className="flex flex-col w-full lg:w-1/2 gap-y-2">
+                            <label htmlFor="message">Message</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                className="border-b border-black focus:border-transparent focus:outline-none focus:border-b-black"
+                                placeholder="Write your message..."
+                                value={formData.message}
+                                onChange={handleInputChange}
+                                required
+                            />
                         </div>
-                        <div className="flex flex-col gap-y-2">
-                            <label>Phone Number</label>
-                            <input className="border-b border-black focus:border-transparent focus:outline-none focus:!border-b-black" />
-                        </div>
-                    </div>
-                    <div className="flex lg:w-1/2 w-3/4">
-                        <div className="flex flex-col w-full gap-y-2">
-                            <label>Message</label>
-                            <input className="border-b border-black focus:border-transparent focus:outline-none focus:!border-b-black" placeholder="Write your message.." />
-                        </div>
-                    </div>
-                    <div>
-                        <button className="text-white flex justify-start lg:mt-10 mt-3">
-                            <p className="w-fit px-6 py-2 bg-[#DD6545] rounded-[14px]">
+                        <div>
+                            <button type="submit" onClick={(e) => handleSubmit(e)} className="text-white px-6 py-2 bg-[#DD6545] rounded-[14px]">
                                 Send Message
-                            </p>
-                        </button>
-                    </div>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     );
-}
+};
 
 export default Contact;
