@@ -35,22 +35,6 @@ const data = [
         title: 'Innovative Solutions',
         desc: 'Creativity and outside-the-box thinking drive our pursuit of new growth opportunities.'
     },
-    {
-        title: 'Product-Market Fit',
-        desc: 'We continuously refine our offerings to ensure they meet market needs and deliver real value.'
-    },
-    {
-        title: 'Scalability Mindset',
-        desc: 'We identify and optimize processes that can drive sustainable growth over time.'
-    },
-    {
-        title: 'Innovative Solutions',
-        desc: 'Creativity and outside-the-box thinking drive our pursuit of new growth opportunities.'
-    },
-    {
-        title: 'Innovative Solutions',
-        desc: 'Creativity and outside-the-box thinking drive our pursuit of new growth opportunities.'
-    },
 ]
 
 const WhatWeDo = () => {
