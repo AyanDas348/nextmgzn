@@ -1,6 +1,9 @@
 import { Facebook, Instagram, Mail, MapPin, Phone, Twitter } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDiscord, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -77,23 +80,27 @@ const Contact = () => {
                     <p className="text-4xl font-bold">Contact Information</p>
                     <p className="text-xl mt-10">Let&apos;s Grow your business together</p>
                     <div className="flex flex-col w-full h-full gap-y-12 mt-12">
-                        <div className="flex gap-x-5 items-center">
+                        <div className="flex gap-x-5 items-center" onClick={() => window.location.href = 'tel:+918018695050'}>
                             <Phone className="h-6 w-6 lg:w-8 lg:h-8" />
                             <p>+91 80186 95050</p>
                         </div>
                         <div className="flex gap-x-5 items-center break-all">
-                            <Mail className="h-10 w-10 lg:w-8 lg:h-8" />
-                            <p>contact@themagazinestudios.com</p>
+                            <a href="mailto:contact@themagazinestudios.com" target="_blank" rel="noopener noreferrer" className="flex gap-x-5 items-center">
+                                <Mail className="h-10 w-10 lg:w-8 lg:h-8" />
+                                <p>contact@themagazinestudios.com</p>
+                            </a>
                         </div>
-                        <div className="flex gap-x-5 items-center">
+                        <div className="flex gap-x-5 items-center" onClick={() => window.open("https://maps.app.goo.gl/hwpMkh444ZjS7Eia6?g_st=iw", "_blank")}>
                             <MapPin className="h-12 w-10 lg:w-10 lg:h-10" />
                             <p>M84, M block market, Greater Kailash 2, New Delhi</p>
                         </div>
                     </div>
                     <div className="flex gap-x-8 lg:mt-40 mt-24 justify-center lg:justify-start cursor-pointer">
-                        <Twitter />
-                        <Instagram />
-                        <Facebook />
+                        <FontAwesomeIcon icon={faTwitter} className="w-6 h-6" />
+                        <Link href={`https://www.instagram.com/nextmgzn/?igsh=c3hyb3NreGVweDNi&utm_source=qr`} target="_blank">
+                            <FontAwesomeIcon icon={faInstagram} className="w-6 h-6" />
+                        </Link>
+                        <FontAwesomeIcon icon={faDiscord} className="w-7 h-7" />
                     </div>
                 </div>
 

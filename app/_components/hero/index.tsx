@@ -2,7 +2,7 @@ import Image from "next/image";
 import image from '@/public/hero.png';
 
 interface HeroProps {
-    handleScroll: () => void;
+    handleScroll?: () => void;
 }
 
 const Hero = ({ handleScroll }: HeroProps) => {
