@@ -5,7 +5,6 @@ import WhatWeDo from "./_components/whatWeDo";
 import Goal from "./_components/goal";
 import Contact from "./_components/Contact";
 import { useRef } from "react";
-import { ToastContainer } from "react-toastify";
 
 export default function Home() {
   const contactRef = useRef<HTMLDivElement>(null);
