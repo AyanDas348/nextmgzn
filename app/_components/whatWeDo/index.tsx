@@ -31,10 +31,6 @@ const data = [
         title: 'Innovative Solutions',
         desc: 'Creativity and outside-the-box thinking drive our pursuit of new growth opportunities.'
     },
-    {
-        title: 'Innovative Solutions',
-        desc: 'Creativity and outside-the-box thinking drive our pursuit of new growth opportunities.'
-    },
 ]
 
 const WhatWeDo = () => {
