@@ -107,7 +107,7 @@ const Contact = () => {
                 <div className="lg:w-2/3 w-full flex flex-col lg:m-20 mx-2 my-6 text-black gap-y-12" id="contact-form">
                     <form onSubmit={handleSubmit} className="flex flex-col gap-y-8">
                         <div className="flex flex-col lg:flex-row gap-y-12 lg:gap-x-40 w-full">
-                            <div className="flex flex-col w-full gap-y-2">
+                            <div className="flex flex-col lg:w-full w-[90%] gap-y-2">
                                 <label htmlFor="firstName">First Name</label>
                                 <input
                                     id="firstName"
@@ -118,7 +118,7 @@ const Contact = () => {
                                     required
                                 />
                             </div>
-                            <div className="flex flex-col w-full gap-y-2">
+                            <div className="flex flex-col lg:w-full w-[90%] gap-y-2">
                                 <label htmlFor="lastName">Last Name</label>
                                 <input
                                     id="lastName"
@@ -131,7 +131,7 @@ const Contact = () => {
                             </div>
                         </div>
                         <div className="flex flex-col lg:flex-row gap-y-12 lg:gap-x-40 w-full">
-                            <div className="flex flex-col w-full gap-y-2">
+                            <div className="flex flex-col lg:w-full w-[90%] gap-y-2">
                                 <label htmlFor="email">Email</label>
                                 <input
                                     id="email"
@@ -143,7 +143,7 @@ const Contact = () => {
                                     required
                                 />
                             </div>
-                            <div className="flex flex-col w-full gap-y-2">
+                            <div className="flex flex-col lg:w-full w-[90%] gap-y-2">
                                 <label htmlFor="phoneNumber">Phone Number</label>
                                 <input
                                     id="phoneNumber"
