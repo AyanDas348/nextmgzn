@@ -34,13 +34,14 @@ const data = [
 ]
 
 const WhatWeDo = () => {
-    const [showState, setShowState] = useState(8)
+    const [showState, setShowState] = useState(7)
+    const [mobileShowState, setMobileShowState] = useState(6)
 
     return (
         <div className="h-full w-full flex flex-col">
             <h1 className="w-full my-20 lg:text-center text-start px-6 lg:px-0 text-4xl font-bold">What We Do</h1>
             <div className="lg:mx-20 mx-6">
-                <div className="lg:grid lg:grid-cols-4 gap-x-5 lg:gap-y-20 grid grid-cols-2 gap-y-12">
+                <div className="lg:grid lg:grid-cols-4 gap-x-5 lg:gap-y-20 hidden">
                     {data.slice(0, showState).map((item, index) => {
                         return (
                             <div key={index}>
@@ -54,10 +55,24 @@ const WhatWeDo = () => {
                         )
                     })}
                 </div>
+                <div className="grid grid-cols-2 gap-y-12 gap-x-5 lg:hidden">
+                    {data.slice(0, mobileShowState).map((item, index) => {
+                        return (
+                            <div key={index}>
+                                <div>
+                                    <div className="w-10 h-10 flex justify-start bg-gray-400 rounded-full">
+                                    </div>
+                                    <h2 className="mt-8 font-bold text-xl">{item.title}</h2>
+                                    <p className="mt-4 lg:mr-20">{item.desc}</p>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
-            {showState === 8 && (
-                <div className="w-full mt-20 text-center px-6 lg:px-0 text-2xl font-bold">
-                    <button type="button" onClick={() => setShowState(showState + 4)} className="text-white bg-[#4f4138] px-10 py-3 rounded-[24px] cursor-pointer">
+            {mobileShowState === 6 && (
+                <div className="w-full mt-20 text-center px-6 lg:px-0 text-2xl font-bold lg:hidden visible">
+                    <button type="button" onClick={() => setMobileShowState(mobileShowState + 4)} className="text-white bg-[#4f4138] px-10 py-3 rounded-[24px] cursor-pointer">
                         See More
                     </button>
                 </div>
