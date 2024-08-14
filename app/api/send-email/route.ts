@@ -14,7 +14,7 @@ export async function POST(req: Request) {
 
   const mailOptions = {
     from: email,
-    to: process.env.EMAIL_USER,
+    to: 'contact@themagazinestudios.com',
     subject: `New waitlist joinee: ${firstName} ${lastName}; ${phoneNumber}; ${email}`,
     text: message,
   };
