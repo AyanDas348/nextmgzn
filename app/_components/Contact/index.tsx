@@ -75,7 +75,7 @@ const Contact = () => {
         <div className="h-full w-full flex flex-col mb-20 bg-[#f9f9f9]">
             <h1 className="w-full mt-20 text-center text-4xl font-bold text-[#4f4138]">Contact Us</h1>
             <p className="mt-6 text-center text-[#717171]">Any questions or remarks? Just write us a message!</p>
-            <div className="lg:!mt-20 lg:mx-10 h-full bg-white p-4 rounded-[8px] flex w-[90%] mx-6 lg:flex-row flex-col my-10 lg:my-0">
+            <div className="lg:!mt-20 lg:mx-10 h-full bg-white p-4 rounded-[8px] flex w-[90%] mx-6 md:mx-auto lg:flex-row flex-col my-10 lg:my-0">
                 <div className="lg:w-1/3 w-full flex flex-col bg-[#4f4138] text-white rounded-[10px] lg:p-20 p-12">
                     <p className="text-4xl font-bold">Contact Information</p>
                     <p className="text-xl mt-10">Let&apos;s Grow your business together</p>
@@ -87,7 +87,7 @@ const Contact = () => {
                         <div className="flex gap-x-5 items-center break-all">
                             <a href="mailto:contact@themagazinestudios.com" target="_blank" rel="noopener noreferrer" className="flex gap-x-5 items-center">
                                 <Mail className="h-10 w-10 lg:w-8 lg:h-8" />
-                                <p>contact@themagazinestudios.com</p>
+                                <p>contact@nextmgzn.com</p>
                             </a>
                         </div>
                         <div className="flex gap-x-5 items-center" onClick={() => window.open("https://maps.app.goo.gl/hwpMkh444ZjS7Eia6?g_st=iw", "_blank")}>
