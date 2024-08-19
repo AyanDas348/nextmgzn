@@ -14,6 +14,12 @@ const config = {
       center: true,
       padding: "2rem",
       screens: {
+        "mob-s": '320px',
+        'mob-m': '375px',
+        'mob-l': '425px',
+        'tablet': '768px',
+        'lg': '1024px',
+        'xl': '1440px',
         "2xl": "1400px",
       },
     },

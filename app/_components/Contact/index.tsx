@@ -95,7 +95,7 @@ const Contact = () => {
                             <p>M84, M block market, Greater Kailash 2, New Delhi</p>
                         </div>
                     </div>
-                    <div className="flex gap-x-8 lg:mt-40 mt-24 justify-center lg:justify-start cursor-pointer lg:justify-center xl:justify-start">
+                    <div className="flex gap-x-8 lg:mt-40 mt-24 justify-center lg:justify-start cursor-pointer xl:justify-start">
                         <FontAwesomeIcon icon={faTwitter} className="w-6 h-6" />
                         <Link href={`https://www.instagram.com/nextmgzn/?igsh=c3hyb3NreGVweDNi&utm_source=qr`} target="_blank">
                             <FontAwesomeIcon icon={faInstagram} className="w-6 h-6" />

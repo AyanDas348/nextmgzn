@@ -28,7 +28,7 @@ const data = [
         desc: 'We test ideas quickly, learn from the results, and iterate fast.'
     },
     {
-        title: 'Customer Focused',
+        title: 'Customer Retention',
         desc: 'By understanding our customers, we enhance their experience and drive retention.'
     },
     {
