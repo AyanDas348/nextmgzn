@@ -75,27 +75,27 @@ const Contact = () => {
         <div className="h-full w-full flex flex-col mb-20 bg-[#f9f9f9]">
             <h1 className="w-full mt-20 text-center text-4xl font-bold text-[#4f4138]">Contact Us</h1>
             <p className="mt-6 text-center text-[#717171]">Any questions or remarks? Just write us a message!</p>
-            <div className="lg:!mt-20 lg:mx-10 h-full bg-white p-4 rounded-[8px] flex w-[90%] mx-6 md:mx-auto lg:flex-row flex-col my-10 lg:my-0">
-                <div className="lg:w-1/3 w-full flex flex-col bg-[#4f4138] text-white rounded-[10px] lg:p-20 p-12">
+            <div className="lg:!mt-20 lg:mx-10 h-full bg-white p-4 rounded-[8px] flex w-[90%] mx-6 md:mx-auto xl:flex-row flex-col my-10 xl:my-0">
+                <div className="xl:w-1/3 w-full flex flex-col bg-[#4f4138] text-white rounded-[10px] lg:p-20 p-12 lg:text-center">
                     <p className="text-4xl font-bold">Contact Information</p>
                     <p className="text-xl mt-10">Let&apos;s Grow your business together</p>
                     <div className="flex flex-col w-full h-full gap-y-12 mt-12">
-                        <div className="flex gap-x-5 items-center" onClick={() => window.location.href = 'tel:+918018695050'}>
+                        <div className="flex gap-x-5 items-center lg:justify-center xl:justify-start" onClick={() => window.location.href = 'tel:+918018695050'}>
                             <Phone className="h-6 w-6 lg:w-8 lg:h-8" />
                             <p>+91 80186 95050</p>
                         </div>
-                        <div className="flex gap-x-5 items-center break-all">
+                        <div className="flex gap-x-5 items-center break-all lg:justify-center xl:justify-start">
                             <a href="mailto:contact@themagazinestudios.com" target="_blank" rel="noopener noreferrer" className="flex gap-x-5 items-center">
                                 <Mail className="h-10 w-10 lg:w-8 lg:h-8" />
                                 <p>contact@nextmgzn.com</p>
                             </a>
                         </div>
-                        <div className="flex gap-x-5 items-center" onClick={() => window.open("https://maps.app.goo.gl/hwpMkh444ZjS7Eia6?g_st=iw", "_blank")}>
+                        <div className="flex gap-x-5 items-center lg:justify-center xl:justify-start" onClick={() => window.open("https://maps.app.goo.gl/hwpMkh444ZjS7Eia6?g_st=iw", "_blank")}>
                             <MapPin className="h-12 w-10 lg:w-10 lg:h-10" />
                             <p>M84, M block market, Greater Kailash 2, New Delhi</p>
                         </div>
                     </div>
-                    <div className="flex gap-x-8 lg:mt-40 mt-24 justify-center lg:justify-start cursor-pointer">
+                    <div className="flex gap-x-8 lg:mt-40 mt-24 justify-center lg:justify-start cursor-pointer lg:justify-center xl:justify-start">
                         <FontAwesomeIcon icon={faTwitter} className="w-6 h-6" />
                         <Link href={`https://www.instagram.com/nextmgzn/?igsh=c3hyb3NreGVweDNi&utm_source=qr`} target="_blank">
                             <FontAwesomeIcon icon={faInstagram} className="w-6 h-6" />
