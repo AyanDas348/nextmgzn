@@ -9,7 +9,7 @@ interface HeroProps {
 const Hero = ({ handleScroll }: HeroProps) => {
     return (
         <div className="w-full flex bg-[#4f4138] h-screen flex-col">
-            <div className="absolute left-5 top-[50px] min-[320px]:top-[85px] min-[375px]:top-[65px] min-[390px]:[52px] min-[425px]:top-[52px] lg:left-20 z-20">
+            <div className="absolute left-5 top-[50px] min-[320px]:top-[85px] min-[365px]:top-[70px] min-[375px]:top-[65px] min-[390px]:[52px] min-[425px]:top-[52px] lg:left-20 z-20">
                 {/* <p className="font-extrabold text-white">NeXTMGZN</p> */}
                 <Image src={logo3} width={200} height={200} alt={"logo"} className="!p-0 w-52 h-52 lg:w-60 lg:h-60" />
             </div>
