@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import Hero from "./_components/hero";
 import WhatWeDo from "./_components/whatWeDo";
@@ -14,66 +14,28 @@ export default function Home() {
   };
 
   return (
-    <main className="overflow-x-hidden scroll-smooth">
-      <Hero handleScroll={handleScrollToContact} />
-      <WhatWeDo />
-      <Goal />
-      <div ref={contactRef}>
+    <main className="overflow-x-hidden h-screen snap-y snap-mandatory">
+      <section className="snap-start h-screen">
+        <Hero handleScroll={handleScrollToContact} />
+      </section>
+      <section className="snap-start">
+        <WhatWeDo />
+      </section>
+      <section className="snap-start">
+        <Goal />
+      </section>
+      
+      {/* Excluding Contact section from snapping */}
+      <section
+        ref={contactRef}
+        className="h-auto !snap-none !snap-center"
+        style={{
+          scrollSnapAlign: 'none',  // No snap alignment
+          scrollSnapStop: 'normal', // Allow normal scrolling
+        }}
+      >
         <Contact />
-      </div>
+      </section>
     </main>
   );
 }
-
-// 'use client'
-
-// import Hero from "./_components/hero";
-// import WhatWeDo from "./_components/whatWeDo";
-// import Goal from "./_components/goal";
-// import Contact from "./_components/Contact";
-// import { useRef, useEffect, useState } from "react";
-
-// export default function Home() {
-//   const sectionsRef = useRef<HTMLDivElement[]>([]);
-//   const [currentSection, setCurrentSection] = useState(0);
-
-//   const scrollToSection = (index: number) => {
-//     sectionsRef.current[index]?.scrollIntoView({ behavior: 'smooth' });
-//   };
-
-//   const handleScroll = (event: WheelEvent) => {
-//     if (event.deltaY > 0 && currentSection < sectionsRef.current.length - 1) {
-//       setCurrentSection((prev) => prev + 1);
-//     } else if (event.deltaY < 0 && currentSection > 0) {
-//       setCurrentSection((prev) => prev - 1);
-//     }
-//   };
-
-//   useEffect(() => {
-//     scrollToSection(currentSection);
-//   }, [currentSection]);
-
-//   useEffect(() => {
-//     window.addEventListener('wheel', handleScroll, { passive: true });
-//     return () => {
-//       window.removeEventListener('wheel', handleScroll);
-//     };
-//   }, [currentSection]);
-
-//   return (
-//     <main className="overflow-x-hidden scroll-smooth">
-//       <div ref={(el) => { if (el) sectionsRef.current[0] = el; }}>
-//         <Hero />
-//       </div>
-//       <div ref={(el) => { if (el) sectionsRef.current[1] = el; }}>
-//         <WhatWeDo />
-//       </div>
-//       <div ref={(el) => { if (el) sectionsRef.current[2] = el; }}>
-//         <Goal />
-//       </div>
-//       <div ref={(el) => { if (el) sectionsRef.current[3] = el; }}>
-//         <Contact />
-//       </div>
-//     </main>
-//   );
-// }
