@@ -14,21 +14,21 @@ export default function Home() {
   };
 
   return (
-    <main className="overflow-x-hidden h-screen snap-y snap-mandatory">
-      <section className="snap-start h-screen">
+    <main className="overflow-x-hidden h-screen">
+      <section className="h-screen">
         <Hero handleScroll={handleScrollToContact} />
       </section>
-      <section className="snap-start">
+      <section className="">
         <WhatWeDo />
       </section>
-      <section className="snap-start">
+      <section className="">
         <Goal />
       </section>
       
       {/* Excluding Contact section from snapping */}
       <section
         ref={contactRef}
-        className="h-auto !snap-none !snap-center"
+        className="h-auto"
         style={{
           scrollSnapAlign: 'none',  // No snap alignment
           scrollSnapStop: 'normal', // Allow normal scrolling
